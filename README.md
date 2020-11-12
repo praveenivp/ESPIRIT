@@ -1,5 +1,5 @@
 
-
+##Introduction 
 This is a collection of Matlab functions and demos to reproduce
 some of the results that are described in the papers:
 
@@ -30,9 +30,9 @@ and Jeffery Fessler (Non-Uniform Fourier Transform)
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
-Demos:
+##Demos:
 
-SPIRiT:
+###SPIRiT:
 	demo_spirit_cg.m    : Demonstrates the CG implementation of Cartesian SPIRiT
 
 	demo_l1_spirit_pocs : Demonstrate the POCS implementation of Cartesian SPIRiT
@@ -40,14 +40,14 @@ SPIRiT:
 
 	demo_nuSPIRiT       : Demonstrates image-based non-Cartesian SPIRiT
 
-Geometric Decomposition Coil Compression:
+###Geometric Decomposition Coil Compression:
 	demo_GCC.m	    : Demonstrates geometric decomposition coil compression  ** USE PUBLISH **
 	
 	demo_ECC.m	    : Demonstrates ESPIRiT based coil compression  ** USE PUBLISH **
 
 	demo_CC_speedup.m   : Demonstrated speedups when using GCC.  ** USE PUBLISH **
 
-ESPIRiT:
+###ESPIRiT:
 	demo_ESPIRiT_maps.m : Demonstrates how to calculate ESPIRiT maps ** USE PUBLISH **
 
 	demo_ESPIRiT_recon.m: Demonstrates ESPIRiT reconstruction with multiple sets of maps ** USE PUBLISH **
@@ -58,11 +58,11 @@ ESPIRiT:
 
 	demo_ESPIRiT_parameters.m : Demonstrates how to empirically estimate the ESPIRiT singular value thresholding. ** Publish **
 
-SAKE:
+###SAKE:
 	demo_SAKE.m 		: Demonstrates autocalibration with no explicit autocalibration lines ** Use Publish **
 
 
-Setup:
+## Setup:
 To compile the mex files for your architecture execute the make.m script
 before starting. 
  
@@ -74,6 +74,11 @@ For Any questions, comments and contributions, please contact
 Miki Lustig (mlustig@eecs.berkeley.edu)
 
 (c) Michael Lustig 2010, 2013
+
+
+## Disclaimer
+
+This package is obtained from (here)[https://people.eecs.berkeley.edu/~mlustig/Software.html]. To see the minor edits I made, see git log.
 
 
 
