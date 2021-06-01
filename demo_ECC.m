@@ -17,7 +17,7 @@
 %% 
 % Set parameters:
 
-load brain_32ch.mat
+% load brain_32ch.mat
 
 % number of compressed virtual coils
 ncc = 5;
@@ -96,6 +96,17 @@ ECCDATA_aligned = CC(DATA,eccmtx_aligned, dim);
 % compute coil image
 ECCim_aligned = ifft2c(ECCDATA_aligned);
 
+
+
+%same for GCC
+% crop and align matrices 
+gccmtx_aligned = alignCCMtx(gccmtx(:,1:ncc,:));
+
+% compress the data
+GCCDATA_aligned = CC(DATA,gccmtx_aligned, dim);
+
+% compute coil image
+GCCim_aligned = ifft2c(GCCDATA_aligned);
 %%
 % The compressed virtual coil are now smooth in phase and magnitude
 

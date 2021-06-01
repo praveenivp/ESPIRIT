@@ -118,7 +118,7 @@ function [alpha, kb_m] = kaiser_bessel_params(alpha, J, K_N)
 if streq(alpha, 'best')
 	if K_N ~= 2
 		warning 'kaiser_bessel optimized only for K/N=2'
-		printf('using good defaults: m=0 and alpha = 2.34*J')
+		fprintf('using good defaults: m=0 and alpha = 2.34*J')
 		kb_m = 0;
 		alpha = 2.34 * J;
 	else

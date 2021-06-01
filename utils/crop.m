@@ -1,4 +1,4 @@
-function res = crop(x,sx,sy,sz,st)
+function res = crop(x,sx,sy,sz,st,shift)
 %  res = crop(x,sx,sy)
 %  crops a 2D matrix around its center.
 %
@@ -18,7 +18,9 @@ function res = crop(x,sx,sy,sz,st)
 if nargin < 2
 	error('must have a target size')
 end
-
+if(~exist('shift','var'))
+    shift=zeros(1,4);
+end
 if nargin == 2
 	s = sx;
 end
@@ -31,7 +33,7 @@ if nargin == 4
     s = [sx,sy,sz];
 end
 
-if nargin == 5
+if nargin >= 5
     s = [sx,sy,sz,st];
 end
 
@@ -47,7 +49,7 @@ end
 
     
     for n=1:length(s)
-	    idx{n} = floor(m(n)/2)+1+ceil(-s(n)/2) : floor(m(n)/2)+ceil(s(n)/2);
+	    idx{n} =( floor(m(n)/2)+1+ceil(-s(n)/2) : floor(m(n)/2)+ceil(s(n)/2)) +shift(n);
     end
 
     % this is a dirty ugly trick

@@ -1,4 +1,4 @@
-function  res = NUFFT(k,w,shift,imSize)
+function  res = NUFFT(k,w,phase_unused,shift,imSize,mode_unused)
 %res = NUFFT(k,w,shift,imSize)
 %	non uniform 2D fourier transform 
 % 	This is a class which wrappes Jeffery Fesslers
@@ -27,14 +27,15 @@ function  res = NUFFT(k,w,shift,imSize)
     om = [real(k(:)), imag(k(:))]*2*pi;
     Nd = imSize;
     Jd = [6,6];
-    Kd = floor([Nd*1.5]);
+    Kd = floor([Nd*2]);
     n_shift = Nd/2 + shift;
-    res.st = nufft_init(om, Nd, Jd, Kd, n_shift,'kaiser');
+    res.st = nufft_init(om, Nd, Jd, Kd, n_shift, 'minmax:kb');
+%     res.st = nufft_init(om, Nd, Jd, Kd, n_shift,'kaiser');
 
     res.adjoint = 0;
     res.imSize = imSize;
     res.dataSize = size(k);
-    res.w = sqrt(w);
+    res.w = sqrt(w);% DCF is split across forward and adjoint operator
     
     res = class(res,'NUFFT');
 

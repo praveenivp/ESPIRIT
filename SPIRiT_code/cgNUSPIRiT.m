@@ -24,11 +24,12 @@ imSize = size(x0);
 dataSize = [size(kData)];
 
 b = [kData(:) ; zeros(prod(imSize),1)];
-[res,FLAG,RELRES,ITER,RESVEC,LSVEC] = lsqr(@(x,tflag)afun(x,NUFFTOP,GOP,dataSize, imSize,lambda,tflag), b, [], nIter,speye(N,N),speye(N,N), x0(:));
+testfun=@(x,tflag)afun(x,NUFFTOP,GOP,dataSize, imSize,lambda,tflag);
+[res,FLAG,RELRES,ITER,RESVEC,LSVEC] = lsqr(testfun, b, [], nIter,speye(N,N),speye(N,N), x0(:));
 
 res = reshape(res,imSize);
 
-
+end
 
 
 
@@ -40,10 +41,18 @@ if strcmp(tflag,'transp')
    y = NUFFTOP'.*x1 + lambda*(GOP'*x2); 
    y = y(:);
 else
-    
-    x = reshape(x,imSize);
+    x=reshape(x,imSize);
     y1 = NUFFTOP.*x;
     y2 = GOP*x;
     y = [y1(:); lambda*y2(:)];
 end
-
+end
+% 
+% function y = mfun(x,opt,a,b)  
+% if strcmp(opt,'notransp')
+%     y = x.*a;
+% else
+%     y = x.*b;
+% end
+% end
+% 

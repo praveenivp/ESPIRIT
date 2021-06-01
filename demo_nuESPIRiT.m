@@ -14,7 +14,7 @@ CalibSize = [30,30];            % size of the calibration region
 N = [260,360];                  % size of the target image
 nIterCG = 15;                   % number of reconstruction iterations
 CalibTyk = 0.02;                % Tykhonov regularization for calibration 0.01-0.05 recommended
-accel = 3;                      % Acceleration factor
+accel = 4;                      % Acceleration factor
 
 eigThresh_k = 0.02; % threshold of eigenvectors in k-space
 eigThresh_im = 0.95; % threshold of eigenvectors in image space

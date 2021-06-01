@@ -10,6 +10,7 @@
 
 load brain_8ch
 
+%%
 [sx,sy,Nc] = size(DATA);
 ncalib = 24; % use 24 calibration lines to compute compression
 ksize = [6,6]; % kernel size
@@ -127,6 +128,7 @@ colormap((jet(256))); colorbar;
 
 load brain_alias_8ch
 
+%%
 ncalib = 24; % use 24 calibration lines to compute compression
 ksize = [6,6];
 eigThresh_1 = 0.02;
@@ -187,7 +189,7 @@ figure, imshow3(abs(W),[],[1,8]);
 title('Eigen Values in Image space');
 colormap((gray(256))); colorbar;
 
-figure, imshow3(abs(M),[],[8,8]); 
+figure, imshow3(abs(M),[],[8,8]);  
 title('Magnitude of Eigen Vectors');
 colormap(gray(256)); colorbar;
 
