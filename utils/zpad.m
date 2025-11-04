@@ -43,7 +43,7 @@ end
 	return;
     end
 
-    res = zeros(s);
+    res = zeros(s,class(x));
     
     for n=1:length(s)
 	    idx{n} = floor(s(n)/2)+1+ceil(-m(n)/2) : floor(s(n)/2)+ceil(m(n)/2);
