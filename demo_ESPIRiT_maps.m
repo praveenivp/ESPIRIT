@@ -83,7 +83,7 @@ title('Magnitude of Eigen Vectors');
 colormap(gray(256)); colorbar;
 
 figure, imshow3(angle(M),[],[8,8]); 
-title('Magnitude of Eigen Vectors');
+title('Phase of Eigen Vectors');
 colormap(jet(256)); colorbar;
 
 
@@ -192,7 +192,7 @@ title('Magnitude of Eigen Vectors');
 colormap(gray(256)); colorbar;
 
 figure, imshow3(angle(M),[],[8,8]); 
-title('Magnitude of Eigen Vectors');
+title('Phase of Eigen Vectors');
 colormap(jet(256)); colorbar;
 
 
