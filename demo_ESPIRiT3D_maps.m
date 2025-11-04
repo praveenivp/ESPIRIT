@@ -67,6 +67,26 @@ colormap(sqrt(gray(256))); colorbar;
 subplot(313),imshow3(abs(null),[],[1,8]); 
 title(sprintf('null space for eig-threshold1=%.2f and %d kernel',eigThresh_1,size(kernels,5)));
 colormap(sqrt(gray(256))); colorbar;
+
+%% let's try full 3D
+calib_data=readcfl('calib24');
+
+imSize=[200 200 40];
+ksize = [1,1,1]*6; % kernel size
+eigThresh_1 = 0.01; 
+eigThresh_2 = 0.95*0; %set to 0 if you want to see null space!
+nMaps=8;
+
+tic
+kernels=dat2Kernel3D(calib_data,ksize,eigThresh_1);
+toc
+
+tic
+[EigenVecs, EigenVals] = kernelEig3D(kernels, imSize,nMaps,eigThresh_2);
+toc
+EigenVecs=flip(flip(flip(flip(EigenVecs,1),2),3),50);
+
+
 %%
 function [ip,proj,null]=espirit_proj(im_coils,maps)
 
